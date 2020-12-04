@@ -1,6 +1,7 @@
 #ciao prova
 
 import random
+import sys
 
 
 class Encoding:
@@ -98,16 +99,17 @@ class Decoding:
 
 
 if __name__ == "__main__":
-
-    open_file = open("passwd.txt")
-    read_file = open_file.read()
-    go_to = Encoding(read_file)
-    go_to
-
-    open_file_crypt = open("crypt_file.txt")
-    open_file_key = open("crypt_file.key.txt")
-    read_file_crypt = open_file_crypt.read()
-    read_file_key = open_file_key.readlines()
-    #print(read_file_key)
-    start_decrypt = Decoding(read_file_crypt, read_file_key)
-    start_decrypt
+    
+    if len(sys.argv) > 2:
+        if sys.argv[2] == "-e":
+            filename = sys.argv[2]
+            read_file = open(filename).read()
+            Encoding(read_file)
+        
+        elif sys.argv[2] == "-d":
+            open_file_crypt = open("crypt_file.txt")
+            open_file_key = open("crypt_file.key.txt")
+            read_file_crypt = open_file_crypt.read()
+            read_file_key = open_file_key.readlines()
+            start_decrypt = Decoding(read_file_crypt, read_file_key)
+            start_decrypt
