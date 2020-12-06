@@ -1,11 +1,12 @@
 import os
+import string
 HOMEPATH = os.getenv('HOMEPATH')
 a, b, c, d =13, 67, 29, 71
 fun1 = [a,b,
         c,d]
 
 ro, lo = int, int
-ist = "0123456789abcdefghijklmnopqrstuvyxwzABCDEFGHIJKLMNOPQRSTUVYXWZ ,.;:@#+*-_'!?=£$%&/()\|[]{<>}"+'"'+"\n"
+ist = string.ascii_uppercase + string.ascii_lowercase + string.digits + "-_!'=)(/&%$£|"+'"'
 ist = list(ist)
 number = len(ist)
 flch = input("[*]Choose a Directory and a File>>")
